@@ -10,10 +10,9 @@ const LoginPage = () => {
           <div className="w-full flex justify-end h-3">
             <Link href="/">
               <svg
-                width="16px"
-                height="16px"
-                strokeWidth="1.5"
-                viewBox="4 4 20 20"
+                width="12px"
+                height="12px"
+                viewBox="4 4 16 16"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
                 color="#000000"

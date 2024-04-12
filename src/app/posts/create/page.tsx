@@ -7,6 +7,7 @@ import MDEditor, {
   TextAreaTextApi,
   TextState,
 } from "@uiw/react-md-editor";
+import axios from "axios";
 import { useState } from "react";
 import { useFormState } from "react-dom";
 import { savePostAction } from "./actions";
@@ -37,9 +38,23 @@ const CreatePostPage = () => {
         const file = e.target.files?.[0];
         if (!file) return;
 
-        const url = URL.createObjectURL(file);
+        // const url = URL.createObjectURL(file);
 
-        api.replaceSelection(`![](${url})`);
+        const {
+          data: { path },
+        } = await axios.post(
+          "/api/images",
+          {
+            image: file,
+          },
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
+
+        api.replaceSelection(`![](${path})`);
       };
       input.click();
     },
