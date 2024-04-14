@@ -1,12 +1,11 @@
 "use server";
 
-import apiAxios from "@/lib/apiAxios";
+import { apiFetch } from "@/lib/getFetch";
 import MarkdownContent from "../_components/MarkdownContent";
 
 const PostDetail = async ({ params }: { params: { id: string } }) => {
-  const {
-    data: { data },
-  } = await apiAxios.get(`/posts/${params.id}`);
+  const response = await apiFetch(`/api/posts/${params.id}`);
+  const { data } = await response.json();
 
   return (
     <div>

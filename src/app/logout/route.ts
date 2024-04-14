@@ -1,10 +1,10 @@
 "use server";
 
 import { deleteToken } from "@/lib/token";
-import { NextResponse } from "next/server";
+import { NextRequest } from "next/server";
 
-export const POST = () => {
+export const GET = (request: NextRequest) => {
   deleteToken();
 
-  return NextResponse.json({ message: "Logout successful" });
+  return Response.redirect(new URL("/login", request.url));
 };

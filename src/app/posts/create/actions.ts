@@ -1,14 +1,13 @@
 "use server";
 
-import apiAxios from "@/lib/apiAxios";
+import { apiFetch } from "@/lib/getFetch";
 
 export const savePostAction = async (_: any, formData: FormData) => {
-  console.log(formData);
-
-  const { data } = await apiAxios.post("/posts", {
-    title: formData.get("title"),
-    content: formData.get("content"),
+  const response = await apiFetch("/api/posts", {
+    method: "POST",
+    body: JSON.stringify(Object.fromEntries(formData.entries())),
   });
+  const { data } = await response.json();
 
   console.log(data);
 

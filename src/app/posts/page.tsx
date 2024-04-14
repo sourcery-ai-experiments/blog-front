@@ -1,21 +1,13 @@
 "use server";
 
-import apiAxios from "@/lib/apiAxios";
 import PostItem from "./_components/PostItem";
 import Paginate from "./_components/Paginate";
+import { apiFetch } from "@/lib/getFetch";
 
-const Posts = async ({
-  searchParams: { page },
-}: {
-  searchParams: { page: string };
-}) => {
-  const {
-    data: { data, meta },
-  } = await apiAxios.get("/posts", {
-    params: {
-      page,
-    },
-  });
+const Posts = async ({ searchParams }: { searchParams: { page: string } }) => {
+  const params = new URLSearchParams(searchParams);
+  const response = await apiFetch(`/api/posts?${params.toString()}`);
+  const { data, meta } = await response.json();
 
   return (
     <div>
