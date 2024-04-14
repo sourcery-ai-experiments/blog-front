@@ -23,7 +23,9 @@ export const middleware = async (request: NextRequest) => {
     }
   } else {
     if (privateOnlyPaths[request.nextUrl.pathname]) {
-      return NextResponse.redirect(new URL("/login", request.url));
+      return NextResponse.redirect(
+        new URL(`/login?next=${request.nextUrl.pathname}`, request.url)
+      );
     }
   }
 
