@@ -1,8 +1,6 @@
 "use server";
 
-import apiAxios from "@/lib/apiAxios";
 import Link from "next/link";
-import LogoutLink from "../LogoutLink";
 import { getToken } from "@/lib/token";
 
 const UserInfo = async () => {
@@ -23,7 +21,7 @@ const UserInfo = async () => {
   return (
     <div>
       {/* {data?.email} */}
-      <LogoutLink />
+      <Link href="/logout">로그아웃</Link>
     </div>
   );
 };

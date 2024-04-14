@@ -1,18 +1,19 @@
 "use server";
 
-import apiAxios from "@/lib/apiAxios";
+import { apiFetch } from "@/lib/getFetch";
 import { setToken } from "@/lib/token";
 import { redirect } from "next/navigation";
 
 export const loginAction = async (_: any, formData: FormData) => {
+  const formDataObject = Object.fromEntries(formData.entries());
+
   try {
-    const {
-      data: { data },
-    } = await apiAxios.post(
-      `${process.env.BASE_API_URL}/auth/login`,
-      formData,
-      {}
-    );
+    const response = await apiFetch("/api/auth/login", {
+      method: "POST",
+      body: JSON.stringify(formDataObject),
+    });
+
+    const { data } = await response.json();
 
     setToken(data.access_token, data.expires_in);
   } catch (error) {
