@@ -1,13 +1,12 @@
 "use server";
 
-import getApiAxios from "@/lib/getApiAxios";
-import { cookies } from "next/headers";
+import apiAxios from "@/lib/apiAxios";
 import Link from "next/link";
 import LogoutLink from "../LogoutLink";
+import { getToken } from "@/lib/token";
 
 const UserInfo = async () => {
-  const token = cookies().get(process.env.TOKEN_COOKIE_NAME);
-  const apiAxios = await getApiAxios();
+  const token = getToken();
 
   if (!token) {
     return (
@@ -17,13 +16,13 @@ const UserInfo = async () => {
     );
   }
 
-  const {
-    data: { data },
-  } = await apiAxios.get("/users/me");
+  // const {
+  //   data: { data },
+  // } = await apiAxios.get("/users/me");
 
   return (
     <div>
-      {data?.email}
+      {/* {data?.email} */}
       <LogoutLink />
     </div>
   );

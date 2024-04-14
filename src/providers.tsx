@@ -1,9 +1,9 @@
 "use client";
 
-import { RecoilRoot } from "recoil";
+import { UserProvider } from "./app/contexts/getUser";
 
 const Providers = ({ children }: { children: React.ReactNode }) => {
-  return <RecoilRoot>{children}</RecoilRoot>;
+  return <UserProvider>{children}</UserProvider>;
 };
 
 export default Providers;

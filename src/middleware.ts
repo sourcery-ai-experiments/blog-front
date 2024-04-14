@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { getToken } from "./lib/token";
 
 type Path = {
   [key: string]: boolean;
@@ -10,11 +11,12 @@ const publicOnlyPaths: Path = {
 
 const privateOnlyPaths: Path = {
   "/posts/create": true,
+  "/logout": true,
 };
 
-export const middleware = (request: NextRequest) => {
-  const token = request.cookies.get(process.env.TOKEN_COOKIE_NAME)?.value;
-  console.log("hi: ", token);
+export const middleware = async (request: NextRequest) => {
+  const token = getToken();
+  console.log("token: ", token);
 
   if (token) {
     if (publicOnlyPaths[request.nextUrl.pathname]) {
@@ -25,6 +27,8 @@ export const middleware = (request: NextRequest) => {
       return NextResponse.redirect(new URL("/login", request.url));
     }
   }
+
+  return NextResponse.next();
 };
 
 export const config = {
