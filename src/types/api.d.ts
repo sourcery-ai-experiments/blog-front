@@ -5,3 +5,11 @@ type User = {
   created_at?: string;
   updated_at?: string;
 };
+
+type Post = {
+  id: number;
+  title: string;
+  content?: string;
+  created_at: string;
+  updated_at?: string;
+};

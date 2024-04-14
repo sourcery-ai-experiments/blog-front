@@ -16,7 +16,6 @@ const privateOnlyPaths: Path = {
 
 export const middleware = async (request: NextRequest) => {
   const token = getToken();
-  console.log("token: ", token);
 
   if (token) {
     if (publicOnlyPaths[request.nextUrl.pathname]) {

@@ -6,7 +6,7 @@ import { getToken } from "./token";
 const apiAxios = axios.create({ baseURL: process.env.BASE_API_URL });
 
 apiAxios.interceptors.request.use((config) => {
-  console.log(config.baseURL, config.url);
+  console.log(config.method, config.baseURL, config.url);
 
   const token = getToken();
   config.headers.Authorization = `Bearer ${token}`;
