@@ -1,7 +1,10 @@
+"use server";
+
 import Link from "next/link";
 import LoginForm from "./_components/LoginForm";
+import { Suspense } from "react";
 
-const LoginPage = () => {
+const LoginPage = async () => {
   return (
     <>
       <div className="absolute inset-0 bg-black/5 blur -z-10"></div>
@@ -29,7 +32,9 @@ const LoginPage = () => {
           </div>
           <div className="text-2xl font-bold mb-6 mt-3">로그인</div>
         </div>
-        <LoginForm />
+        <Suspense>
+          <LoginForm />
+        </Suspense>
       </div>
     </>
   );
