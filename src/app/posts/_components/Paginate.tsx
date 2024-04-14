@@ -14,8 +14,12 @@ const Paginate = ({ meta, url }: { meta: any; url?: string }) => {
       onClick={({ nextSelectedPage }) => {
         console.log("new page", nextSelectedPage);
 
-        nextSelectedPage !== undefined &&
-          router.push(`${url}?page=${nextSelectedPage + 1}`);
+        if (nextSelectedPage === undefined) return;
+
+        const params = new URLSearchParams(searchParams);
+        params.set("page", String(nextSelectedPage + 1));
+
+        router.push(`${url}?${params.toString()}`);
       }}
     />
   );
