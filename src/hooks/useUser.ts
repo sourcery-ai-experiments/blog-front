@@ -1,22 +1,28 @@
 "use client";
 
-import { atom, useRecoilState } from "recoil";
-import useAxios from "./useAxios";
+import { useUserContext } from "@/app/contexts/getUser";
+import { redirect } from "next/navigation";
 import { useCallback } from "react";
+import useAxios from "./useAxios";
 
-const userAtom = atom<User | null>({
-  key: "user",
-  default: null,
-});
+const useUser = () => {
+  const { user, setUser } = useUserContext();
 
-export const useUser = () => {
-  const [user, setUser] = useRecoilState(userAtom);
   const axios = useAxios();
 
   if (!user) {
-    axios.get("/api/users/me").then(({ data: { data } }) => {
-      setUser(data);
-    });
+    axios
+      .get("/api/v1/users/me")
+      .then(({ data: { data } }) => {
+        setUser({
+          ...data,
+          expired_at: new Date(new Date().getTime() + 1000 * 60 * 60 * 24),
+        });
+      })
+      .catch(() => {
+        setUser(null);
+        redirect("/login");
+      });
   }
 
   const resetUser = useCallback(() => {
@@ -25,3 +31,5 @@ export const useUser = () => {
 
   return { user, resetUser };
 };
+
+export default useUser;

@@ -16,13 +16,13 @@ const UserInfo = async () => {
     );
   }
 
-  const {
-    data: { data },
-  } = await apiAxios.get("/users/me");
+  // const {
+  //   data: { data },
+  // } = await apiAxios.get("/users/me");
 
   return (
     <div>
-      {data?.email}
+      {/* {data?.email} */}
       <LogoutLink />
     </div>
   );

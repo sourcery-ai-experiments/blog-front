@@ -11,8 +11,13 @@ import axios from "axios";
 import { useState } from "react";
 import { useFormState } from "react-dom";
 import { savePostAction } from "./actions";
+import useUser from "@/hooks/useUser";
 
 const CreatePostPage = () => {
+  const { user } = useUser();
+
+  console.log(user);
+
   const [mdValue, setMdValue] = useState<string | undefined>();
   const [, savePost] = useFormState(savePostAction, null);
 
