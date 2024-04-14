@@ -4,13 +4,17 @@ import Button from "@/app/_components/Button";
 import Input from "@/app/_components/Input";
 import { useFormState } from "react-dom";
 import { loginAction } from "../../actions";
+import { useSearchParams } from "next/navigation";
 
 const LoginForm = () => {
+  const searchParams = useSearchParams();
+  const redirectTo = searchParams.get("next");
   const [, login] = useFormState(loginAction, null);
 
   return (
     <form action={login} className="flex flex-col gap-6">
       <div className="flex flex-col gap-3">
+        {redirectTo && <input type="hidden" name="next" value={redirectTo} />}
         <Input
           type="text"
           name="email"

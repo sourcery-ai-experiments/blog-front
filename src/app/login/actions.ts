@@ -10,7 +10,10 @@ export const loginAction = async (_: any, formData: FormData) => {
   try {
     const response = await apiFetch("/api/auth/login", {
       method: "POST",
-      body: JSON.stringify(formDataObject),
+      body: JSON.stringify({
+        email: formDataObject.email,
+        password: formDataObject.password,
+      }),
     });
 
     const { data } = await response.json();
@@ -21,5 +24,5 @@ export const loginAction = async (_: any, formData: FormData) => {
     return;
   }
 
-  redirect("/");
+  redirect(formDataObject.next?.toString() ?? "/");
 };

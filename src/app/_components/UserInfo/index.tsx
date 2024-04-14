@@ -1,29 +1,37 @@
 "use server";
 
+import getUser from "@/lib/getUser";
+import { deleteToken } from "@/lib/token";
 import Link from "next/link";
-import { getToken } from "@/lib/token";
+import { redirect } from "next/navigation";
 
 const UserInfo = async () => {
-  const token = getToken();
+  const user = await getUser();
 
-  if (!token) {
+  if (user) {
+    return (
+      <div>
+        <div>
+          {user.name}({user.email})
+        </div>
+        <form
+          action={async () => {
+            "use server";
+            deleteToken();
+            redirect("/login");
+          }}
+        >
+          <button>로그아웃</button>
+        </form>
+      </div>
+    );
+  } else {
     return (
       <div>
         <Link href="/login">로그인</Link>
       </div>
     );
   }
-
-  // const {
-  //   data: { data },
-  // } = await apiAxios.get("/users/me");
-
-  return (
-    <div>
-      {/* {data?.email} */}
-      <Link href="/logout">로그아웃</Link>
-    </div>
-  );
 };
 
 export default UserInfo;

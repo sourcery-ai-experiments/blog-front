@@ -1,8 +1,8 @@
 "use server";
 
-import PostItem from "./_components/PostItem";
-import Paginate from "./_components/Paginate";
 import { apiFetch } from "@/lib/getFetch";
+import Paginate from "./_components/Paginate";
+import PostItem from "./_components/PostItem";
 
 const Posts = async ({ searchParams }: { searchParams: { page: string } }) => {
   const params = new URLSearchParams(searchParams);
