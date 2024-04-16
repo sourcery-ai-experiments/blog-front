@@ -1,7 +1,7 @@
 "use server";
 
 import Link from "next/link";
-import UserInfo from "./_components/UserInfo";
+import UserInfo from "../components/UserInfo";
 import About from "./about/page";
 
 const Home = async () => {

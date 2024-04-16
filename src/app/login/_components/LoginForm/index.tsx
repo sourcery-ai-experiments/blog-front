@@ -1,10 +1,10 @@
 "use client";
 
-import Button from "@/app/_components/Button";
-import Input from "@/app/_components/Input";
+import Button from "@/components/Button";
+import Input from "@/components/Input";
+import { useSearchParams } from "next/navigation";
 import { useFormState } from "react-dom";
 import { loginAction } from "../../actions";
-import { useSearchParams } from "next/navigation";
 
 const LoginForm = () => {
   const searchParams = useSearchParams();

@@ -1,45 +1,27 @@
 "use client";
 
+import { InputHTMLAttributes } from "react";
 import { useFormStatus } from "react-dom";
 
 const Input = ({
-  type,
-  placeholder,
-  value,
-  name,
-  id,
-  className,
-  required,
-  autoComplete,
   errors,
-}: {
-  type?: string;
-  placeholder?: string;
-  value?: string;
-  name?: string;
-  id?: string;
-  className?: string;
-  required?: boolean;
-  autoComplete?: string;
+  className,
+  ...rest
+}: InputHTMLAttributes<HTMLInputElement> & {
   errors?: string[];
+  className?: string;
 }) => {
   const { pending } = useFormStatus();
 
   return (
     <div className="flex flex-col gap-2">
       <input
-        type={type}
-        placeholder={placeholder}
-        value={value}
-        name={name}
-        id={id}
-        required={required}
-        autoComplete={autoComplete}
         className={
           "w-full px-4 py-3.5 text-sm leading-5 border-none ring-1 ring-inset rounded " +
           className
         }
         disabled={pending}
+        {...rest}
       />
       {errors &&
         errors.map((error, index) => (
