@@ -1,13 +1,8 @@
-"use server";
-
-import getUser from "@/lib/getUser";
 import { deleteToken } from "@/lib/token";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 
-const UserInfo = async () => {
-  const user = await getUser();
-
+const UserInfo = ({ user }: { user?: User }) => {
   if (user) {
     return (
       <div>

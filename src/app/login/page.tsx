@@ -1,10 +1,8 @@
-"use server";
-
 import Link from "next/link";
 import LoginForm from "./_components/LoginForm";
 import { Suspense } from "react";
 
-const LoginPage = async () => {
+const LoginPage = () => {
   return (
     <>
       <div className="absolute inset-0 bg-black/5 blur -z-10"></div>

@@ -11,9 +11,11 @@ const CreatePostPage = () => {
 
   return (
     <form data-color-mode="light" action={savePost}>
-      <Input type="text" name="title" placeholder="Title" />
+      <Input className="mb-6" type="text" name="title" placeholder="Title" />
       <MarkdownEditor name="content" />
-      <Button type="submit">등록</Button>
+      <Button className="mt-6" type="submit">
+        등록
+      </Button>
     </form>
   );
 };
