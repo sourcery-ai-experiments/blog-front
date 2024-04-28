@@ -7,7 +7,7 @@ import "server-only";
 const getFetch = (baseUrl?: string) => {
   return async (input: string | URL, init?: RequestInit) => {
     const inputUrl = baseUrl ? new URL(input, baseUrl) : input;
-    console.log(inputUrl, init);
+    console.log(inputUrl.toString(), init);
     const response = await fetch(inputUrl, {
       ...init,
       headers: {

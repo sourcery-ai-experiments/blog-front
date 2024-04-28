@@ -1,4 +1,5 @@
 import "@/app/globals.css";
+import { Layout } from "@/app/layout";
 import type { Preview } from "@storybook/react";
 
 const preview: Preview = {
@@ -13,18 +14,7 @@ const preview: Preview = {
       appDirectory: true,
     },
   },
-  decorators: [
-    (storyFn) => (
-      <div className="max-w-screen-sm mx-auto py-20 px-4">{storyFn()}</div>
-    ),
-    // withThemeByClassName({
-    //   themes: {
-    //     light: "",
-    //     dark: "dark",
-    //   },
-    //   defaultTheme: "light",
-    // }),
-  ],
+  decorators: [(storyFn) => <Layout>{storyFn()}</Layout>],
 };
 
 export default preview;

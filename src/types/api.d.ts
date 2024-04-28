@@ -8,6 +8,7 @@ type User = {
 
 type Post = {
   id: number;
+  slug: string;
   title: string;
   content?: string;
   created_at: string;

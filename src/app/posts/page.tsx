@@ -20,11 +20,11 @@ const Posts = async ({ searchParams }: { searchParams: { page: string } }) => {
       </h1>
       {data.map((post: Post) => (
         <Item
-          key={post.id}
+          key={post.slug}
           title={post.title}
           description={post.content}
           date={format(post.created_at, "PPP")}
-          href={`/posts/${post.id}`}
+          href={`/posts/${post.slug}`}
         />
       ))}
       <PostPaginate pageCount={meta.last_page} />
