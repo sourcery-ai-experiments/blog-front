@@ -1,5 +1,5 @@
+import Layout from "@/app/(footer)/layout";
 import "@/app/globals.css";
-import { Layout } from "@/app/layout";
 import type { Preview } from "@storybook/react";
 
 const preview: Preview = {

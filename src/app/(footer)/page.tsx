@@ -1,9 +1,9 @@
 "use server";
 
 import Link from "next/link";
-import UserInfo from "../components/UserInfo";
-import About from "./about/page";
 import getUser from "@/lib/getUser";
+import About from "./about/page";
+import UserInfo from "@/components/UserInfo";
 
 const Home = async () => {
   const user = await getUser();
