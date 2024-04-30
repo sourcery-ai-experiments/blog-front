@@ -1,10 +1,23 @@
 "use server";
 
 import { apiFetch } from "@/lib/getFetch";
-import { setToken } from "@/lib/token";
 import { redirect } from "next/navigation";
+import { getIronSession } from "iron-session";
+import { cookies } from "next/headers";
+
+type SessionData = {
+  int: number;
+  name: string;
+  email: string;
+  accessToken: string;
+};
 
 export const loginAction = async (_: any, formData: FormData) => {
+  const session = await getIronSession<SessionData>(cookies(), {
+    cookieName: process.env.NEXT_PUBLIC_TOKEN_COOKIE_NAME,
+    password: process.env.AUTH_SECRET,
+  });
+
   const formDataObject = Object.fromEntries(formData.entries());
 
   try {
@@ -18,7 +31,14 @@ export const loginAction = async (_: any, formData: FormData) => {
 
     const { data } = await response.json();
 
-    setToken(data.access_token, data.expires_in);
+    const meResponse = await apiFetch("/api/user/me");
+    const responseJson = await meResponse.json();
+
+    console.log(responseJson);
+
+    // setToken(data.access_token, data.expires_in);
+    session.accessToken = data.access_token;
+    await session.save();
   } catch (error) {
     console.log(error);
     return;
