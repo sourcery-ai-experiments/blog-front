@@ -6,10 +6,7 @@ import UserInfo from "@/components/UserInfo";
 import { getSession } from "@/lib/session";
 
 const Home = async () => {
-
   const session = await getSession()
-
-
 
   return (
     <main>
@@ -18,6 +15,9 @@ const Home = async () => {
       <About />
       <Link href="/posts/create">post</Link>
       <UserInfo user={session.id ? session : undefined} />
+
+      {/* { dayjs("2024-04-12T08:37:13.000000Z").format("YYYY-MM-DD")} */}
+
     </main>
   );
 };
