@@ -1,12 +1,15 @@
 "use server";
 
 import Link from "next/link";
-import getUser from "@/lib/getUser";
 import About from "./about/page";
 import UserInfo from "@/components/UserInfo";
+import { getSession } from "@/lib/session";
 
 const Home = async () => {
-  const user = await getUser();
+
+  const session = await getSession()
+
+
 
   return (
     <main>
@@ -14,7 +17,7 @@ const Home = async () => {
 
       <About />
       <Link href="/posts/create">post</Link>
-      <UserInfo user={user} />
+      <UserInfo />
     </main>
   );
 };

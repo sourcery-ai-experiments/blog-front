@@ -4,10 +4,9 @@ import { getIronSession } from "iron-session";
 import { cookies } from "next/headers";
 
 type SessionData = {
-  int: number;
+  id: number;
   name: string;
   email: string;
-  accessToken: string;
 };
 
 export async function getSession() {
