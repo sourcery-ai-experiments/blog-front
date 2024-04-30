@@ -1,5 +1,5 @@
 import { apiFetch } from "@/lib/getFetch";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import PostPaginate from "./_components/PostPaginate";
 import Item from "./_components/Item";
 import dayjs from "dayjs";
