@@ -1,22 +1,11 @@
 "use server";
 
 import { apiFetch } from "@/lib/getFetch";
+import { getSession } from "@/lib/session";
 import { redirect } from "next/navigation";
-import { getIronSession } from "iron-session";
-import { cookies } from "next/headers";
-
-type SessionData = {
-  int: number;
-  name: string;
-  email: string;
-  accessToken: string;
-};
 
 export const loginAction = async (_: any, formData: FormData) => {
-  const session = await getIronSession<SessionData>(cookies(), {
-    cookieName: process.env.NEXT_PUBLIC_TOKEN_COOKIE_NAME,
-    password: process.env.AUTH_SECRET,
-  });
+  const session = await getSession();
 
   const formDataObject = Object.fromEntries(formData.entries());
 
