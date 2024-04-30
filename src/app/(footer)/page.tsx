@@ -17,7 +17,7 @@ const Home = async () => {
 
       <About />
       <Link href="/posts/create">post</Link>
-      <UserInfo />
+      <UserInfo user={session.id ? session : undefined} />
     </main>
   );
 };
