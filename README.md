@@ -1,12 +1,10 @@
-# Blog 프론트엔드
+# Blog frontend project
 
-Next.js를 사용하여 블로그 프론트엔드를 구현합니다.
+This project implements a blog front-end using Next.js.
 
-[백엔드 프로젝트](https://github.com/freejak5520/blog-api)
+[Here is the link to the API back-end project.](https://github.com/freejak5520/blog-api)
 
-## 개발 환경
-
-개발 환경 설정 방법
+## Development Environment Setup
 
 ### Copy .env
 
@@ -14,21 +12,20 @@ Next.js를 사용하여 블로그 프론트엔드를 구현합니다.
 cp .env.example .env.local
 ```
 
-### Install
+### Install dependencies
 
 ```shell
 yarn install
 ```
 
-### Dev
+### Start development server
 
 ```shell
 yarn dev
 ```
 
-### Storybook
+### Start Storybook
 
 ```shell
 yarn sb
 ```
-
