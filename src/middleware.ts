@@ -1,12 +1,13 @@
+import { getSession } from "@/lib/session";
 import { NextRequest, NextResponse } from "next/server";
-import { getToken } from "./lib/token";
+
 
 type Path = {
   [key: string]: boolean;
 };
 
 const publicOnlyPaths: Path = {
-  "/login": true,
+  // "/login": true,
 };
 
 const privateOnlyPaths: Path = {
@@ -15,9 +16,9 @@ const privateOnlyPaths: Path = {
 };
 
 export const middleware = async (request: NextRequest) => {
-  const token = getToken();
+  const session = await getSession();
 
-  if (token) {
+  if (session.id) {
     if (publicOnlyPaths[request.nextUrl.pathname]) {
       return NextResponse.redirect(new URL("/", request.url));
     }

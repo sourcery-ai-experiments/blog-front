@@ -1,12 +1,12 @@
 "use server";
 
 import Link from "next/link";
-import getUser from "@/lib/getUser";
 import About from "./about/page";
 import UserInfo from "@/components/UserInfo";
+import { getSession } from "@/lib/session";
 
 const Home = async () => {
-  const user = await getUser();
+  const session = await getSession()
 
   return (
     <main>
@@ -14,7 +14,10 @@ const Home = async () => {
 
       <About />
       <Link href="/posts/create">post</Link>
-      <UserInfo user={user} />
+      <UserInfo user={session.id ? session : undefined} />
+
+      {/* { dayjs("2024-04-12T08:37:13.000000Z").format("YYYY-MM-DD")} */}
+
     </main>
   );
 };

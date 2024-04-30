@@ -1,9 +1,10 @@
 "use client";
 
+
 import MDEditor, {
-  ICommand,
   TextAreaTextApi,
-  TextState,
+  type ICommand,
+  type TextState,
 } from "@uiw/react-md-editor";
 import { useState } from "react";
 
@@ -19,7 +20,7 @@ const UploadImage: ICommand = {
       ></path>
     </svg>
   ),
-  execute: (state: TextState, api: TextAreaTextApi) => {
+  execute: (_: TextState, api: TextAreaTextApi) => {
     console.log("hello");
 
     const input = document.createElement("input");

@@ -1,4 +1,5 @@
-import { deleteToken } from "@/lib/token";
+
+import { getSession } from "@/lib/session";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 
@@ -12,7 +13,10 @@ const UserInfo = ({ user }: { user?: User }) => {
         <form
           action={async () => {
             "use server";
-            deleteToken();
+
+            const session = await getSession()
+            session.destroy();
+
             redirect("/login");
           }}
         >

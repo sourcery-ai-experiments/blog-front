@@ -1,8 +1,8 @@
 import { apiFetch } from "@/lib/getFetch";
-import { format } from "date-fns";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import PostPaginate from "./_components/PostPaginate";
 import Item from "./_components/Item";
+import dayjs from "dayjs";
 
 export const metadata: Metadata = {
   title: "Posts",
@@ -23,7 +23,7 @@ const Posts = async ({ searchParams }: { searchParams: { page: string } }) => {
           key={post.slug}
           title={post.title}
           description={post.content}
-          date={format(post.created_at, "PPP")}
+          date={dayjs(post.created_at).format("YYYY-MM-DD")}
           href={`/posts/${post.slug}`}
         />
       ))}

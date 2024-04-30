@@ -1,8 +1,8 @@
 "use server";
 
 import { apiFetch } from "@/lib/getFetch";
-import { format } from "date-fns";
 import MarkdownContent from "../_components/MarkdownContent";
+import dayjs from "dayjs";
 
 const getPost = async (slug: string) => {
   const response = await apiFetch(`/api/posts/${slug}`);
@@ -21,7 +21,7 @@ export const generateMetadata = async ({
 
   return {
     title: post.title,
-    description: `Posted on ${format(post.created_at, "PPP")}`,
+    description: `Posted on ${dayjs(post.created_at).format("YYYY-MM-DD")}`,
   };
 };
 
@@ -35,7 +35,7 @@ const PostDetail = async ({ params }: { params: { slug: string } }) => {
           {post.title}
         </h1>
         <div className="mb-8 text-sm text-gray-500 dark:text-gray-400 flex justify-end">
-          {format(post.created_at, "PPP")}
+          {dayjs(post.created_at).format("YYYY-MM-DD")}
         </div>
         <div>
           <MarkdownContent content={post.content} />
