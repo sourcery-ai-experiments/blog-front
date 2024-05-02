@@ -7,7 +7,7 @@ Implementing a blog front-end using Next.js.
 ### Copy .env
 
 ```shell
-cp .env.example .env.local
+cp .env.example .env
 ```
 
 ### Install dependencies
