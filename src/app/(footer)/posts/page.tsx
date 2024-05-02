@@ -4,14 +4,15 @@ import db from "@/lib/db";
 import { getSession } from "@/lib/session";
 import dayjs from "dayjs";
 import Item from "./_components/Item";
+import { cache } from "react";
 
-export const generateMetadata = async () => {
+export const generateMetadata = cache(async () => {
   const session = await getSession();
 
   return {
-    title: `${session.name} Posts.`,
+    title: `Posts.`,
   };
-};
+});
 
 export default async function Posts({
   searchParams,
