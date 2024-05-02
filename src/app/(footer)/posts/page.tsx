@@ -3,8 +3,8 @@
 import db from "@/lib/db";
 import { getSession } from "@/lib/session";
 import dayjs from "dayjs";
-import Item from "./_components/Item";
 import { cache } from "react";
+import Item from "./_components/Item";
 
 export const generateMetadata = cache(async () => {
   return {
