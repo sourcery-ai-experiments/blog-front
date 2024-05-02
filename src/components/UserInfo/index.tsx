@@ -1,9 +1,8 @@
-
 import { getSession } from "@/lib/session";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 
-const UserInfo = ({ user }: { user?: User }) => {
+const UserInfo = ({ user }: { user?: any }) => {
   if (user) {
     return (
       <div>
@@ -14,7 +13,7 @@ const UserInfo = ({ user }: { user?: User }) => {
           action={async () => {
             "use server";
 
-            const session = await getSession()
+            const session = await getSession();
             session.destroy();
 
             redirect("/login");
