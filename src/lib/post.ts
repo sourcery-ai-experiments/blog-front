@@ -10,7 +10,7 @@ import db from "@/lib/db";
  */
 const getAvailableSlug = async (
   originalSlug: string,
-  sequence: number = 0
+  sequence: number = 0,
 ): Promise<string> => {
   const nowSlug = originalSlug + (sequence ? `_${sequence}` : "");
 

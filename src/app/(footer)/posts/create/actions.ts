@@ -19,7 +19,7 @@ export const savePostAction = async (_: any, formData: FormData) => {
   }
 
   const result = await postSchema.safeParseAsync(
-    Object.fromEntries(formData.entries())
+    Object.fromEntries(formData.entries()),
   );
 
   if (!result.success) {

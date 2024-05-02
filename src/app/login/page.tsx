@@ -6,11 +6,11 @@ import { Footer } from "../(footer)/layout";
 const LoginPage = () => {
   return (
     <>
-      <div className="absolute inset-0 bg-black/5 blur -z-10"></div>
-      <div className="flex flex-col max-w-96 w-full mx-auto">
-        <div className="relative p-6 rounded-md bg-white shadow">
-          <div className="flex flex-col justify-center items-center">
-            <div className="w-full flex justify-end h-3">
+      <div className="absolute inset-0 -z-10 bg-black/5 blur"></div>
+      <div className="mx-auto flex w-full max-w-96 flex-col">
+        <div className="relative rounded-md bg-white p-6 shadow">
+          <div className="flex flex-col items-center justify-center">
+            <div className="flex h-3 w-full justify-end">
               <Link href="/">
                 <svg
                   width="12px"
@@ -30,7 +30,7 @@ const LoginPage = () => {
                 </svg>
               </Link>
             </div>
-            <div className="text-2xl font-bold mb-6 mt-3">로그인</div>
+            <div className="mb-6 mt-3 text-2xl font-bold">로그인</div>
           </div>
           <Suspense>
             <LoginForm />

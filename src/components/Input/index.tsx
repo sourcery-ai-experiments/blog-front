@@ -17,7 +17,7 @@ const Input = ({
     <div className="flex flex-col gap-2">
       <input
         className={
-          "w-full px-4 py-3.5 text-sm leading-5 border-none ring-1 ring-inset rounded " +
+          "w-full rounded border-none px-4 py-3.5 text-sm leading-5 ring-1 ring-inset " +
           className
         }
         disabled={pending}

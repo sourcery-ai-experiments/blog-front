@@ -1,7 +1,6 @@
 import { getSession } from "@/lib/session";
 import { NextRequest, NextResponse } from "next/server";
 
-
 type Path = {
   [key: string]: boolean;
 };
@@ -25,7 +24,7 @@ export const middleware = async (request: NextRequest) => {
   } else {
     if (privateOnlyPaths[request.nextUrl.pathname]) {
       return NextResponse.redirect(
-        new URL(`/login?next=${request.nextUrl.pathname}`, request.url)
+        new URL(`/login?next=${request.nextUrl.pathname}`, request.url),
       );
     }
   }

@@ -13,19 +13,19 @@ const Item = ({
 }) => {
   return (
     <div>
-      <h2 className="text-gray-950 dark:text-gray-50 text-lg font-bold mt-8 mb-2">
+      <h2 className="mb-2 mt-8 text-lg font-bold text-gray-950 dark:text-gray-50">
         <Link href={href}>{title}</Link>
       </h2>
-      <p className="text-gray-700 dark:text-gray-300 mb-4 font-medium">
+      <p className="mb-4 font-medium text-gray-700 dark:text-gray-300">
         {description}
         <Link
           href={href}
-          className="ml-2 text-gray-950 dark:text-gray-50 font-bold underline text-sm"
+          className="ml-2 text-sm font-bold text-gray-950 underline dark:text-gray-50"
         >
           더보기 →
         </Link>
       </p>
-      <div className="text-gray-700 dark:text-gray-300 text-sm">{date}</div>
+      <div className="text-sm text-gray-700 dark:text-gray-300">{date}</div>
     </div>
   );
 };

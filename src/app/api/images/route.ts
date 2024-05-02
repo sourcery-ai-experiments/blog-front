@@ -34,7 +34,7 @@ export const POST = async (request: NextRequest) => {
       new HeadObjectCommand({
         Bucket: "blog",
         Key: keyName,
-      })
+      }),
     );
 
     return NextResponse.json({
@@ -50,7 +50,7 @@ export const POST = async (request: NextRequest) => {
         Key: keyName,
         Body: (await image.arrayBuffer()) as any,
         ContentType: image.type,
-      })
+      }),
     );
 
     return NextResponse.json({

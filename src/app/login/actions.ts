@@ -64,7 +64,7 @@ const loginSchema = z
 
 export const loginAction = async (_: any, formData: FormData) => {
   const parsed = await loginSchema.safeParseAsync(
-    Object.fromEntries(formData.entries())
+    Object.fromEntries(formData.entries()),
   );
 
   if (!parsed.success) {

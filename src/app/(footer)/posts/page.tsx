@@ -26,7 +26,7 @@ export default async function Posts() {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold mb-6 text-black dark:text-white">
+      <h1 className="mb-6 text-3xl font-bold text-black dark:text-white">
         Posts
       </h1>
       {posts.map((post) => (
