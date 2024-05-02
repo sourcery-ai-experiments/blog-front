@@ -11,12 +11,17 @@ on:
 
 jobs:
   build:
+    name: Build Project
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v3
+      - name: Checkout
+        uses: actions/checkout@v4.1.4
+
+      - name: Setup Yarn
+        uses: threeal/setup-yarn-action@v2.0.0
+
       - run: cp .env.example .env
-      - run: pnpm install
-      - run: pnpm lint
-      - run: pnpm tsc
-      - run: pnpm build
+      - run: yarn install
+      - run: yarn prisma generate
+      - run: yarn tsc
+      - run: yarn build

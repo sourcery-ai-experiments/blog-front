@@ -1,35 +1,44 @@
-import { apiFetch } from "@/lib/getFetch";
-import type { Metadata } from "next";
-import PostPaginate from "./_components/PostPaginate";
-import Item from "./_components/Item";
+"use server";
+
+import db from "@/lib/db";
+import { getSession } from "@/lib/session";
 import dayjs from "dayjs";
+import { cache } from "react";
+import Item from "./_components/Item";
 
-export const metadata: Metadata = {
-  title: "Posts",
-};
+export const generateMetadata = cache(async () => {
+  return {
+    title: `Posts.`,
+  };
+});
 
-const Posts = async ({ searchParams }: { searchParams: { page: string } }) => {
-  const params = new URLSearchParams(searchParams);
-  const response = await apiFetch(`/api/posts?${params.toString()}`);
-  const { data, meta } = await response.json();
+export default async function Posts() {
+  const session = await getSession();
+
+  const posts = await db.post.findMany({
+    where: {
+      userId: session.id,
+    },
+    orderBy: {
+      id: "desc",
+    },
+  });
 
   return (
     <div>
       <h1 className="text-3xl font-bold mb-6 text-black dark:text-white">
         Posts
       </h1>
-      {data.map((post: Post) => (
+      {posts.map((post) => (
         <Item
           key={post.slug}
           title={post.title}
           description={post.content}
-          date={dayjs(post.created_at).format("YYYY-MM-DD")}
+          date={dayjs(post.createdAt).format("YYYY-MM-DD")}
           href={`/posts/${post.slug}`}
         />
       ))}
-      <PostPaginate pageCount={meta.last_page} />
+      {/* <PostPaginate pageCount={meta.last_page} /> */}
     </div>
   );
-};
-
-export default Posts;
+}

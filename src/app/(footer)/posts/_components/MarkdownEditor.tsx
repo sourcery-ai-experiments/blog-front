@@ -1,6 +1,5 @@
 "use client";
 
-
 import MDEditor, {
   TextAreaTextApi,
   type ICommand,
@@ -76,7 +75,7 @@ const MarkdownEditor = ({ name }: { name: string }) => {
         onChange={(value) => {
           setMdValue(value);
         }}
-        commands={[UploadImage]}
+        // commands={[UploadImage]}
         // extraCommands={[commands.divider, UploadImage]}
       />
       {/* <MDEditor.Markdown source={mdValue} / > */}

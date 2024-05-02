@@ -1,14 +1,14 @@
 "use server";
 
+import db from "@/lib/db";
+import { getSession } from "@/lib/session";
 import {
   EMAIL_ERROR,
   EMAIL_REQUIRED_ERROR,
   EMAIL_TYPE_ERROR,
   PASSWORD_REQUIRED_ERROR,
   PASSWORD_TYPE_ERROR,
-} from "@/lib/constants";
-import db from "@/lib/db";
-import { getSession } from "@/lib/session";
+} from "@/lib/validation";
 import bcrypt from "bcrypt";
 import { redirect } from "next/navigation";
 import { z } from "zod";
