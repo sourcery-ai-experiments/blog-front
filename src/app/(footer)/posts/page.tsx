@@ -5,13 +5,13 @@ import { getSession } from "@/lib/session";
 import dayjs from "dayjs";
 import Item from "./_components/Item";
 
-export async function generateMetadata() {
+export const generateMetadata = async () => {
   const session = await getSession();
 
   return {
     title: `${session.name} Posts.`,
   };
-}
+};
 
 export default async function Posts({
   searchParams,

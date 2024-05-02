@@ -1,32 +1,38 @@
 "use server";
 
-import { apiFetch } from "@/lib/getFetch";
-import MarkdownContent from "../_components/MarkdownContent";
+import db from "@/lib/db";
 import dayjs from "dayjs";
+import { notFound } from "next/navigation";
+import { cache } from "react";
+import MarkdownContent from "../_components/MarkdownContent";
 
-const getPost = async (slug: string) => {
-  const response = await apiFetch(`/api/posts/${slug}`);
-  const { data } = await response.json();
-  return data;
-};
+const getPostDetail = cache(async (slug: string) => {
+  return db.post.findUnique({
+    where: { slug },
+  });
+});
 
 export const generateMetadata = async ({
   params,
 }: {
   params: { slug: string };
 }) => {
-  const post = await getPost(params.slug);
+  const post = await getPostDetail(params.slug);
 
   if (!post) return;
 
   return {
     title: post.title,
-    description: `Posted on ${dayjs(post.created_at).format("YYYY-MM-DD")}`,
+    description: `Posted on ${dayjs(post.createdAt).format("YYYY-MM-DD")}`,
   };
 };
 
 const PostDetail = async ({ params }: { params: { slug: string } }) => {
-  const post = await getPost(params.slug);
+  const post = await getPostDetail(params.slug);
+
+  if (!post) {
+    notFound();
+  }
 
   return (
     <>
@@ -35,7 +41,7 @@ const PostDetail = async ({ params }: { params: { slug: string } }) => {
           {post.title}
         </h1>
         <div className="mb-8 text-sm text-gray-500 dark:text-gray-400 flex justify-end">
-          {dayjs(post.created_at).format("YYYY-MM-DD")}
+          {dayjs(post.createdAt).format("YYYY-MM-DD")}
         </div>
         <div>
           <MarkdownContent content={post.content} />
