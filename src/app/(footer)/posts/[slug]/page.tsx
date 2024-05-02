@@ -1,10 +1,10 @@
 "use server";
 
-import db from "@/lib/db";
 import dayjs from "dayjs";
 import { notFound } from "next/navigation";
 import { cache } from "react";
 import MarkdownContent from "../_components/MarkdownContent";
+import db from "@/lib/db";
 
 const getPostDetail = cache(async (slug: string) => {
   return db.post.findUnique({

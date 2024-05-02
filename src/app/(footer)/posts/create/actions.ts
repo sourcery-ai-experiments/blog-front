@@ -1,10 +1,10 @@
 "use server";
 
+import { redirect } from "next/navigation";
+import { z } from "zod";
 import db from "@/lib/db";
 import { makePostSlug } from "@/lib/post";
 import { getSession } from "@/lib/session";
-import { redirect } from "next/navigation";
-import { z } from "zod";
 
 const postSchema = z.object({
   title: z.string(),

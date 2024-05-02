@@ -1,7 +1,7 @@
 import Link from "next/link";
-import LoginForm from "./_components/LoginForm";
 import { Suspense } from "react";
-import { Footer } from "../(footer)/layout";
+import { Footer } from "@/app/(footer)/layout";
+import LoginForm from "@/app/login/_components/LoginForm";
 
 const LoginPage = () => {
   return (

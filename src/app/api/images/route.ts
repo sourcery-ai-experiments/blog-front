@@ -1,6 +1,5 @@
 "use server";
 
-import r2ImageLoader from "@/app/loader";
 import {
   HeadObjectCommand,
   PutObjectCommand,
@@ -8,6 +7,7 @@ import {
 } from "@aws-sdk/client-s3";
 import md5 from "md5";
 import { NextRequest, NextResponse } from "next/server";
+import r2ImageLoader from "@/app/loader";
 
 export const POST = async (request: NextRequest) => {
   const formData = await request.formData();

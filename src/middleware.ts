@@ -1,5 +1,5 @@
-import { getSession } from "@/lib/session";
 import { NextRequest, NextResponse } from "next/server";
+import { getSession } from "@/lib/session";
 
 type Path = {
   [key: string]: boolean;
