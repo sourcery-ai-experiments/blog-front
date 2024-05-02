@@ -7,18 +7,12 @@ import Item from "./_components/Item";
 import { cache } from "react";
 
 export const generateMetadata = cache(async () => {
-  const session = await getSession();
-
   return {
     title: `Posts.`,
   };
 });
 
-export default async function Posts({
-  searchParams,
-}: {
-  searchParams: { page: string };
-}) {
+export default async function Posts() {
   const session = await getSession();
 
   const posts = await db.post.findMany({
