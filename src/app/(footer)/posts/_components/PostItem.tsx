@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const Item = ({
+const PostItem = ({
   title,
   description,
   date,
@@ -30,4 +30,4 @@ const Item = ({
   );
 };
 
-export default Item;
+export default PostItem;

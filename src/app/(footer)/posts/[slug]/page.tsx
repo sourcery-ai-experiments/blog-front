@@ -3,7 +3,6 @@
 import dayjs from "dayjs";
 import { notFound } from "next/navigation";
 import { cache } from "react";
-import MarkdownContent from "../_components/MarkdownContent";
 import db from "@/lib/db";
 import PostDetail from "@/app/(footer)/posts/[slug]/_components/post-detail";
 

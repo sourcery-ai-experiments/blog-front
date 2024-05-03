@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import Item from "./Item";
+import PostItem from "./PostItem";
 
 const meta = {
   title: "Components/Posts/Item",
-  component: Item,
+  component: PostItem,
   tags: ["autodocs"],
   argTypes: {
     date: {
@@ -18,7 +18,7 @@ const meta = {
     date: "2024-01-01",
     href: "#",
   },
-} satisfies Meta<typeof Item>;
+} satisfies Meta<typeof PostItem>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
