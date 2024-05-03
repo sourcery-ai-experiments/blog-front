@@ -1,15 +1,14 @@
 import { render } from "@testing-library/react";
-import Button from "@/components/Button";
-import "@testing-library/jest-dom";
+import Input from "@/components/Input";
 
 jest.mock("react-dom", () => ({
   ...jest.requireActual("react-dom"),
   useFormStatus: () => ({ pending: false }),
 }));
 
-describe("Button", () => {
-  it("render button", () => {
-    const { container } = render(<Button>hello</Button>);
+describe("Input", () => {
+  it("snapshot test", () => {
+    const { container } = render(<Input />);
 
     expect(container).toMatchSnapshot();
   });
