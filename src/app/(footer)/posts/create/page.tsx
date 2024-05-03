@@ -1,10 +1,10 @@
 "use client";
 
-import Button from "@/components/Button";
-import Input from "@/components/Input";
 import { useFormState } from "react-dom";
 import MarkdownEditor from "../_components/MarkdownEditor";
 import { savePostAction } from "./actions";
+import Input from "@/components/Input";
+import Button from "@/components/Button";
 
 const CreatePostPage = () => {
   const [, savePost] = useFormState(savePostAction, null);

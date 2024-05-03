@@ -1,5 +1,8 @@
 "use server";
 
+import bcrypt from "bcrypt";
+import { redirect } from "next/navigation";
+import { z } from "zod";
 import db from "@/lib/db";
 import { getSession } from "@/lib/session";
 import {
@@ -9,9 +12,6 @@ import {
   PASSWORD_REQUIRED_ERROR,
   PASSWORD_TYPE_ERROR,
 } from "@/lib/validation";
-import bcrypt from "bcrypt";
-import { redirect } from "next/navigation";
-import { z } from "zod";
 
 const loginSchema = z
   .object({
@@ -64,7 +64,7 @@ const loginSchema = z
 
 export const loginAction = async (_: any, formData: FormData) => {
   const parsed = await loginSchema.safeParseAsync(
-    Object.fromEntries(formData.entries())
+    Object.fromEntries(formData.entries()),
   );
 
   if (!parsed.success) {

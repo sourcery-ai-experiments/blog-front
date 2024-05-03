@@ -1,6 +1,6 @@
-import { getSession } from "@/lib/session";
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import { getSession } from "@/lib/session";
 
 const UserInfo = ({ user }: { user?: any }) => {
   if (user) {

@@ -12,7 +12,7 @@ const Button = ({
 
   return (
     <button
-      className={`border-r bg-blue-800 text-white font-bold px-4 py-3.5 leading-5 text-sm rounded w-full disabled:bg-gray-400 ${className}`}
+      className={`w-full rounded border-r bg-blue-800 px-4 py-3.5 text-sm font-bold leading-5 text-white disabled:bg-gray-400 ${className}`}
       disabled={pending}
       {...rest}
     >

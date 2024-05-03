@@ -1,10 +1,10 @@
 "use server";
 
+import { redirect } from "next/navigation";
+import { z } from "zod";
 import db from "@/lib/db";
 import { makePostSlug } from "@/lib/post";
 import { getSession } from "@/lib/session";
-import { redirect } from "next/navigation";
-import { z } from "zod";
 
 const postSchema = z.object({
   title: z.string(),
@@ -19,7 +19,7 @@ export const savePostAction = async (_: any, formData: FormData) => {
   }
 
   const result = await postSchema.safeParseAsync(
-    Object.fromEntries(formData.entries())
+    Object.fromEntries(formData.entries()),
   );
 
   if (!result.success) {

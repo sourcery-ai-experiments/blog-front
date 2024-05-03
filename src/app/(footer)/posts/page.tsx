@@ -1,10 +1,10 @@
 "use server";
 
-import db from "@/lib/db";
-import { getSession } from "@/lib/session";
 import dayjs from "dayjs";
 import { cache } from "react";
 import Item from "./_components/Item";
+import { getSession } from "@/lib/session";
+import db from "@/lib/db";
 
 export const generateMetadata = cache(async () => {
   return {
@@ -26,7 +26,7 @@ export default async function Posts() {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold mb-6 text-black dark:text-white">
+      <h1 className="mb-6 text-3xl font-bold text-black dark:text-white">
         Posts
       </h1>
       {posts.map((post) => (

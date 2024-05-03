@@ -23,7 +23,7 @@ const Paginate = ({
 
   return (
     <ReactPaginate
-      className="flex justify-start items-center gap-4"
+      className="flex items-center justify-start gap-4"
       pageCount={pageCount}
       forcePage={parseInt(searchParams?.get("page") || "1") - 1}
       onClick={onClick}
