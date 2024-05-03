@@ -3,7 +3,7 @@
 import dayjs from "dayjs";
 import { notFound } from "next/navigation";
 import { cache } from "react";
-import MarkdownContent from "../_components/MarkdownContent";
+import PostDetail from "./_components/PostDetail";
 import db from "@/lib/db";
 
 const getPostDetail = cache(async (slug: string) => {
@@ -27,28 +27,16 @@ export const generateMetadata = async ({
   };
 };
 
-const PostDetail = async ({ params }: { params: { slug: string } }) => {
+export default async function PostDetailPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
   const post = await getPostDetail(params.slug);
 
   if (!post) {
     notFound();
   }
 
-  return (
-    <>
-      <div>
-        <h1 className="mb-9 text-3xl font-bold text-gray-950 dark:text-gray-50">
-          {post.title}
-        </h1>
-        <div className="mb-8 flex justify-end text-sm text-gray-500 dark:text-gray-400">
-          {dayjs(post.createdAt).format("YYYY-MM-DD")}
-        </div>
-        <div>
-          <MarkdownContent content={post.content} />
-        </div>
-      </div>
-    </>
-  );
-};
-
-export default PostDetail;
+  return <PostDetail post={post} />;
+}

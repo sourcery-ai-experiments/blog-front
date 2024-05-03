@@ -1,4 +1,4 @@
-import Layout from "@/app/(footer)/layout";
+// import Layout from "@/app/(footer)/layout";
 import "@/app/globals.css";
 import type { Preview } from "@storybook/react";
 
@@ -14,7 +14,7 @@ const preview: Preview = {
       appDirectory: true,
     },
   },
-  decorators: [(storyFn) => <Layout>{storyFn()}</Layout>],
+  // decorators: [(storyFn) => <Layout>{storyFn()}</Layout>],
 };
 
 export default preview;
