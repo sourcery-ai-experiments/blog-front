@@ -11,12 +11,9 @@ const Home = async () => {
   return (
     <main>
       <h1>블로그</h1>
-
       <About />
       <Link href="/posts/create">post</Link>
       <UserInfo user={session.id ? session : undefined} />
-
-      {/* { dayjs("2024-04-12T08:37:13.000000Z").format("YYYY-MM-DD")} */}
     </main>
   );
 };
