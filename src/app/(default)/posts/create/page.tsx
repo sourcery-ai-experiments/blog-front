@@ -2,7 +2,7 @@
 
 import { useFormState } from "react-dom";
 import { savePostAction } from "./actions";
-import CreateForm from "@/app/(footer)/posts/create/_components/CreateForm";
+import CreateForm from "@/app/(default)/posts/create/_components/CreateForm";
 
 const CreatePostPage = () => {
   const [, savePost] = useFormState(savePostAction, null);

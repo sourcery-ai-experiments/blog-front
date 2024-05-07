@@ -6,10 +6,15 @@ export const Footer = () => {
   );
 };
 
+const Header = () => {
+  return <div></div>;
+};
+
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <div className="mx-auto max-w-screen-sm px-4 py-20">
+        <Header />
         {children}
         <Footer />
       </div>
