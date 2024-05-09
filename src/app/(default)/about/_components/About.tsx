@@ -1,9 +1,11 @@
-import { H1, P } from "@/components/ui/typography";
+import Header from "@/components/Header";
+import { P } from "@/components/ui/typography";
 
-export default function About() {
+const About = () => {
   return (
     <div>
-      <H1>About</H1>
+      <Header title="About" />
+
       <P>
         python, django로 개발을 시작해서 PHP, Laravel 백엔드 개발을 거쳐
         <br />
@@ -11,4 +13,6 @@ export default function About() {
       </P>
     </div>
   );
-}
+};
+
+export default About;
