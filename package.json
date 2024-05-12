@@ -10,7 +10,8 @@
     "sb": "storybook dev -p 6006",
     "sb:build": "storybook build",
     "test": "jest",
-    "prisma": "prisma"
+    "prisma": "prisma",
+    "tsc": "tsc"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.554.0",
