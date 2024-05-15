@@ -1,4 +1,4 @@
-import MarkdownEditor from "@/app/(footer)/posts/_components/MarkdownEditor";
+import MarkdownEditor from "@/app/(default)/posts/_components/MarkdownEditor";
 import Button from "@/components/Button";
 import Input from "@/components/Input";
 

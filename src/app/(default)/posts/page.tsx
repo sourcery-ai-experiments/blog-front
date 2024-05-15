@@ -5,6 +5,9 @@ import { cache } from "react";
 import PostItem from "./_components/PostItem";
 import { getSession } from "@/lib/session";
 import db from "@/lib/db";
+import { H1 } from "@/components/ui/typography";
+import NavBar from "@/components/NavBar";
+import Header from "@/components/Header";
 
 export const generateMetadata = cache(async () => {
   return {
@@ -26,9 +29,8 @@ export default async function Posts() {
 
   return (
     <div>
-      <h1 className="mb-6 text-3xl font-bold text-black dark:text-white">
-        Posts
-      </h1>
+      <Header title="Blog" />
+
       {posts.map((post) => (
         <PostItem
           key={post.slug}
