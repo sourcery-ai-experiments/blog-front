@@ -10,6 +10,7 @@
     "sb": "storybook dev -p 6006",
     "sb:build": "storybook build",
     "test": "jest",
+    "test:watch": "jest --watch",
     "prisma": "prisma",
     "tsc": "tsc"
   },
