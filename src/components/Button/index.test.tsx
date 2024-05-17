@@ -13,4 +13,15 @@ describe("Button", () => {
 
     expect(container).toMatchSnapshot();
   });
+
+  it("onclick", () => {
+    const onClickHandler = jest.fn();
+
+    const { container } = render(
+      <Button onClick={onClickHandler}>hello</Button>,
+    );
+    container.querySelector("button")?.click();
+
+    expect(onClickHandler).toHaveBeenCalled();
+  });
 });

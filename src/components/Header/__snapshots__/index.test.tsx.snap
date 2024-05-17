@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header header render test 1`] = `
+<div>
+  <div>
+    <h1
+      class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl"
+    >
+      test Title
+    </h1>
+    <div
+      class="flex flex-row justify-end gap-3"
+    >
+      <a
+        class="font-semibold"
+        href="/posts"
+      >
+        Blog
+      </a>
+      <a
+        class="font-semibold"
+        href="/about"
+      >
+        About
+      </a>
+      <a
+        class="font-semibold"
+        href="https://github.com/freejak5520"
+        target="_blank"
+      >
+        GitHub
+      </a>
+    </div>
+    <div
+      class="shrink-0 bg-border h-[1px] w-full my-10"
+      data-orientation="horizontal"
+      role="none"
+    />
+  </div>
+</div>
+`;
