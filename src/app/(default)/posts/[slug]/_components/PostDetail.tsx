@@ -1,5 +1,5 @@
 import dayjs from "dayjs";
-import MarkdownContent from "@/app/(default)/posts/_components/MarkdownContent";
+import MarkdownContent from "@/components/posts/MarkdownContent";
 
 export default function PostDetail({ post }: { post: Post }) {
   return (

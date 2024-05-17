@@ -1,6 +1,6 @@
-import MarkdownEditor from "@/app/(default)/posts/_components/MarkdownEditor";
 import Button from "@/components/Button";
 import Input from "@/components/Input";
+import MarkdownEditor from "@/components/posts/MarkdownEditor";
 
 export default function CreateForm({
   action,
