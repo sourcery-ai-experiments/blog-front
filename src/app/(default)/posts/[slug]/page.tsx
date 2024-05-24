@@ -23,7 +23,9 @@ export const generateMetadata = async ({
 
   return {
     title: post.title,
-    description: `Posted on ${dayjs(post.createdAt).format("YYYY-MM-DD")}`,
+    description:
+      post.description ||
+      `Posted on ${dayjs(post.createdAt).format("YYYY-MM-DD")}`,
   };
 };
 
