@@ -27,3 +27,10 @@ pnpm dev
 ```shell
 pnpm sb
 ```
+
+## To-do
+
+- [ ] Add post description
+- [ ] Login Page UI
+- [ ] Register
+- [ ] User Main Page
