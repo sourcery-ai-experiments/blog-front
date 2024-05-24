@@ -9,6 +9,7 @@ import { getSession } from "@/lib/session";
 const postSchema = z.object({
   title: z.string(),
   content: z.string(),
+  description: z.string().optional(),
 });
 
 export const savePostAction = async (_: any, formData: FormData) => {
@@ -32,6 +33,7 @@ export const savePostAction = async (_: any, formData: FormData) => {
       slug: await makePostSlug(result.data.title),
       title: result.data.title,
       content: result.data.content,
+      description: result.data.description,
     },
   });
 
