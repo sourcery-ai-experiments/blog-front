@@ -1,8 +1,12 @@
+"use server";
+
 import dayjs from "dayjs";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import MarkdownContent from "@/components/posts/MarkdownContent";
+import { getSession } from "@/lib/session";
 
-export default function PostDetail({ post }: { post: Post }) {
+export default async function PostDetail({ post }: { post: Post }) {
   return (
     <div>
       <h1 className="mb-9 text-3xl font-bold text-gray-950 dark:text-gray-50">

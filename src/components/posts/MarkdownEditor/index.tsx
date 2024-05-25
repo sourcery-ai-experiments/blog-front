@@ -75,12 +75,10 @@ const MarkdownEditor = ({
 
   return (
     <>
-      <textarea name={name} className="hidden" value={mdValue} />
+      <textarea name={name} className="hidden" value={mdValue} readOnly />
       <MDEditor
         value={mdValue}
-        onChange={(value) => {
-          setMdValue(value);
-        }}
+        onChange={setMdValue}
         // commands={[UploadImage]}
         // extraCommands={[commands.divider, UploadImage]}
       />
