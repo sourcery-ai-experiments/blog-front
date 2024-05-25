@@ -33,7 +33,7 @@ export default async function Posts() {
         <PostItem
           key={post.slug}
           title={post.title}
-          description={post.content}
+          description={post.description || post.content.slice(0, 100)}
           date={dayjs(post.createdAt).format("YYYY-MM-DD")}
           href={`/posts/${post.slug}`}
         />

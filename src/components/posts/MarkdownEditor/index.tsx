@@ -64,8 +64,14 @@ const UploadImage: ICommand = {
   },
 };
 
-const MarkdownEditor = ({ name }: { name: string }) => {
-  const [mdValue, setMdValue] = useState<string | undefined>();
+const MarkdownEditor = ({
+  name,
+  initialValue,
+}: {
+  name: string;
+  initialValue?: string;
+}) => {
+  const [mdValue, setMdValue] = useState<string | undefined>(initialValue);
 
   return (
     <>

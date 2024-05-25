@@ -22,6 +22,7 @@ export const Default: Story = {
       userId: 1,
       slug: "zsh-option-arrow",
       title: "Zsh에서 Option + Arrow 키로 단어 단위 이동하기",
+      description: "Zsh에서 Option + Arrow 키로 단어 단위 이동하기",
       content: postContent,
       createdAt: dayjs("2023-01-01T00:00:00Z").toDate(),
       updatedAt: dayjs("2023-01-02T00:00:00Z").toDate(),

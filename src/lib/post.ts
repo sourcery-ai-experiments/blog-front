@@ -1,4 +1,5 @@
 import db from "@/lib/db";
+import "server-only";
 
 /**
  * DB를 조회하며 slug 문자열이 사용가능한지 확인합니다.
@@ -8,10 +9,10 @@ import db from "@/lib/db";
  *
  * 사용 가능한 slug를 찾을 경우 반환합니다.
  */
-const getAvailableSlug = async (
+async function getAvailableSlug(
   originalSlug: string,
   sequence: number = 0,
-): Promise<string> => {
+): Promise<string> {
   const nowSlug = originalSlug + (sequence ? `_${sequence}` : "");
 
   const post = await db.post.findUnique({
@@ -24,7 +25,7 @@ const getAvailableSlug = async (
   } else {
     return nowSlug;
   }
-};
+}
 
 /**
  * 게시글 제목(title)을 slug로 변환합니다.
@@ -33,4 +34,10 @@ const getAvailableSlug = async (
  */
 export async function makePostSlug(title: string) {
   return getAvailableSlug(encodeURI(title));
+}
+
+export async function getDetail(slug: string) {
+  return db.post.findUnique({
+    where: { slug },
+  });
 }

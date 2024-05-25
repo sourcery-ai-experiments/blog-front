@@ -4,12 +4,10 @@ import dayjs from "dayjs";
 import { notFound } from "next/navigation";
 import { cache } from "react";
 import PostDetail from "./_components/PostDetail";
-import db from "@/lib/db";
+import { getDetail } from "@/lib/post";
 
 const getPostDetail = cache(async (slug: string) => {
-  return db.post.findUnique({
-    where: { slug },
-  });
+  return getDetail(slug);
 });
 
 export const generateMetadata = async ({

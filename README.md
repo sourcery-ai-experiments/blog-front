@@ -30,8 +30,9 @@ pnpm sb
 
 ## To-do
 
-- [x] Add post description
-- [ ] Markdown to text (for default description)
+- [ ] Edit post Page and feature
+- [ ] Header UI
 - [ ] Login Page UI
-- [ ] Register
+- [ ] Sign Up Page
 - [ ] User Main Page
+- [ ] Markdown to text (for default description)
