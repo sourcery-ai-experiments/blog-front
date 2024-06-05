@@ -1,10 +1,8 @@
-"use server";
-
 import dayjs from "dayjs";
 import Link from "next/link";
 import MarkdownContent from "@/components/posts/MarkdownContent";
 
-export default async function PostDetail({ post }: { post: Post }) {
+export default function PostDetail({ post }: { post: Post }) {
   return (
     <div>
       <h1 className="mb-9 text-3xl font-bold text-gray-950 dark:text-gray-50">
@@ -13,7 +11,7 @@ export default async function PostDetail({ post }: { post: Post }) {
       <div className="mb-8 flex justify-between text-sm text-gray-500 dark:text-gray-400">
         <div>{dayjs(post.createdAt).format("YYYY-MM-DD")}</div>
         <div>
-          <Link href={`${post.slug}/update`}>수정</Link>
+          <Link href={`/posts/${post.slug}/update`}>수정</Link>
         </div>
       </div>
       <div>

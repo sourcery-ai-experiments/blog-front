@@ -23,7 +23,7 @@ export async function updatePostAction(_: any, formData: FormData) {
     return parsed.error.flatten();
   }
 
-  if (!isUserAuthorOfPost(parseInt(parsed.data.id), session.id)) {
+  if (!(await isUserAuthorOfPost(parseInt(parsed.data.id), session.id))) {
     return notFound();
   }
 
