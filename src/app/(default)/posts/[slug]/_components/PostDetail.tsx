@@ -2,9 +2,7 @@
 
 import dayjs from "dayjs";
 import Link from "next/link";
-import { redirect } from "next/navigation";
 import MarkdownContent from "@/components/posts/MarkdownContent";
-import { getSession } from "@/lib/session";
 
 export default async function PostDetail({ post }: { post: Post }) {
   return (

@@ -1,3 +1,5 @@
+"use server";
+
 import db from "@/lib/db";
 import "server-only";
 
@@ -36,8 +38,27 @@ export async function makePostSlug(title: string) {
   return getAvailableSlug(encodeURI(title));
 }
 
-export async function getDetail(slug: string) {
+export async function getPostDetail(slug: string) {
   return db.post.findUnique({
     where: { slug },
   });
+}
+
+export async function updatePost(postId: number, post: PostFillable) {
+  return db.post.update({
+    where: { id: postId },
+    data: post,
+    select: { id: true, slug: true },
+  });
+}
+
+export async function isUserAuthorOfPost(postId: number, userId: number) {
+  const postExists = await db.post.count({
+    where: {
+      id: postId,
+      userId: userId,
+    },
+  });
+
+  return postExists > 0;
 }

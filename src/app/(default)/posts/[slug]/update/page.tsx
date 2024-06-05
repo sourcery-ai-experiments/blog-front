@@ -4,14 +4,14 @@ import { notFound } from "next/navigation";
 import { cache } from "react";
 import { UpdatePostForm } from "./_components/UpdateForm";
 import { getSession } from "@/lib/session";
-import { getDetail } from "@/lib/post";
+import { getPostDetail } from "@/lib/post";
 
-const getPostDetail = cache(async (slug: string) => {
-  return getDetail(slug);
+const getPost = cache(async (slug: string) => {
+  return getPostDetail(slug);
 });
 
 const UpdatePostPage = async ({ params }: { params: { slug: string } }) => {
-  const post = await getPostDetail(params.slug);
+  const post = await getPost(params.slug);
 
   if (!post) {
     return notFound();

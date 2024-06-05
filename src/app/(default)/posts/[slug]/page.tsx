@@ -4,10 +4,10 @@ import dayjs from "dayjs";
 import { notFound } from "next/navigation";
 import { cache } from "react";
 import PostDetail from "./_components/PostDetail";
-import { getDetail } from "@/lib/post";
+import { getPostDetail } from "@/lib/post";
 
-const getPostDetail = cache(async (slug: string) => {
-  return getDetail(slug);
+const getPost = cache(async (slug: string) => {
+  return getPostDetail(slug);
 });
 
 export const generateMetadata = async ({
@@ -15,7 +15,7 @@ export const generateMetadata = async ({
 }: {
   params: { slug: string };
 }) => {
-  const post = await getPostDetail(params.slug);
+  const post = await getPost(params.slug);
 
   if (!post) return;
 
@@ -32,7 +32,7 @@ export default async function PostDetailPage({
 }: {
   params: { slug: string };
 }) {
-  const post = await getPostDetail(params.slug);
+  const post = await getPost(params.slug);
 
   if (!post) {
     notFound();

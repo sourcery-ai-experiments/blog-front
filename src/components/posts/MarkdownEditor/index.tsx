@@ -67,9 +67,11 @@ const UploadImage: ICommand = {
 const MarkdownEditor = ({
   name,
   initialValue,
+  height,
 }: {
   name: string;
   initialValue?: string;
+  height?: string | number;
 }) => {
   const [mdValue, setMdValue] = useState<string | undefined>(initialValue);
 
@@ -81,6 +83,7 @@ const MarkdownEditor = ({
         onChange={setMdValue}
         // commands={[UploadImage]}
         // extraCommands={[commands.divider, UploadImage]}
+        height={height}
       />
       {/* <MDEditor.Markdown source={mdValue} / > */}
     </>

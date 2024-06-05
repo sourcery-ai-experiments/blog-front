@@ -7,13 +7,16 @@ type User = {
   updatedAt: Date;
 };
 
-type Post = {
-  id: number;
-  userId: number;
-  slug: string;
+type PostFillable = {
   title: string;
   description?: string | null;
   content: string;
+};
+
+type Post = PostFillable & {
+  id: number;
+  userId: number;
+  slug: string;
   createdAt: Date;
   updatedAt: Date;
 };
