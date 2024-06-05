@@ -1,38 +1,41 @@
 "use client";
 
 import { useFormState } from "react-dom";
-import { savePostAction } from "./actions";
+import { updatePostAction } from "../actions";
 import Button from "@/components/Button";
 import Input from "@/components/Input";
 import MarkdownEditor from "@/components/posts/MarkdownEditor";
 
-const CreatePostPage = () => {
-  const [, savePost] = useFormState(savePostAction, null);
+export function UpdatePostForm({ post }: { post: Post | null }) {
+  const [_, action] = useFormState(updatePostAction, null);
 
   return (
-    <form data-color-mode="light" action={savePost}>
+    <form data-color-mode="light" action={action}>
+      <Input name="id" type="hidden" value={post?.id} />
       <label htmlFor="id_title">Title</label>
       <Input
-        id="id_title"
         className="mb-6"
         type="text"
         name="title"
         placeholder="Title"
+        defaultValue={post?.title}
       />
       <label htmlFor="id_description">Description</label>
       <Input
-        id="id_description"
         className="mb-6"
         type="text"
         name="description"
         placeholder="Description"
+        defaultValue={post?.description ?? ""}
       />
-      <MarkdownEditor name="content" />
+      <MarkdownEditor
+        name="content"
+        initialValue={post?.content}
+        height={500}
+      />
       <Button className="mt-6" type="submit">
         등록
       </Button>
     </form>
   );
-};
-
-export default CreatePostPage;
+}

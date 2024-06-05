@@ -2,12 +2,10 @@
 
 import dayjs from "dayjs";
 import { cache } from "react";
-import PostItem from "./_components/PostItem";
-import { getSession } from "@/lib/session";
-import db from "@/lib/db";
-import { H1 } from "@/components/ui/typography";
-import NavBar from "@/components/NavBar";
+import PostItem from "../../../components/posts/PostItem";
 import Header from "@/components/Header";
+import db from "@/lib/db";
+import { getSession } from "@/lib/session";
 
 export const generateMetadata = cache(async () => {
   return {
@@ -35,7 +33,7 @@ export default async function Posts() {
         <PostItem
           key={post.slug}
           title={post.title}
-          description={post.content}
+          description={post.description || post.content.slice(0, 100)}
           date={dayjs(post.createdAt).format("YYYY-MM-DD")}
           href={`/posts/${post.slug}`}
         />

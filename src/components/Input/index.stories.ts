@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { fn } from "@storybook/test";
 import Input from ".";
 
 const meta = {
@@ -13,7 +14,11 @@ const meta = {
       type: "string",
     },
   },
-  args: { errors: [], value: "test" },
+  args: {
+    errors: [],
+    value: "test",
+    onChange: fn(),
+  },
 } satisfies Meta<typeof Input>;
 
 export default meta;

@@ -64,19 +64,26 @@ const UploadImage: ICommand = {
   },
 };
 
-const MarkdownEditor = ({ name }: { name: string }) => {
-  const [mdValue, setMdValue] = useState<string | undefined>();
+const MarkdownEditor = ({
+  name,
+  initialValue,
+  height,
+}: {
+  name: string;
+  initialValue?: string;
+  height?: string | number;
+}) => {
+  const [mdValue, setMdValue] = useState<string | undefined>(initialValue);
 
   return (
     <>
-      <textarea name={name} className="hidden" value={mdValue} />
+      <textarea name={name} className="hidden" value={mdValue} readOnly />
       <MDEditor
         value={mdValue}
-        onChange={(value) => {
-          setMdValue(value);
-        }}
+        onChange={setMdValue}
         // commands={[UploadImage]}
         // extraCommands={[commands.divider, UploadImage]}
+        height={height}
       />
       {/* <MDEditor.Markdown source={mdValue} / > */}
     </>

@@ -1,9 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import MaxWidthDecorator from "../decorator/MaxWidthDecorator";
 import Header from "./index";
 
 const meta = {
   title: "Components/Header",
   component: Header,
+  decorators: [(story) => <MaxWidthDecorator>{story()}</MaxWidthDecorator>],
 } satisfies Meta<typeof Header>;
 export default meta;
 

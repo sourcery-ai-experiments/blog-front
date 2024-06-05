@@ -12,7 +12,8 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "prisma": "prisma",
-    "tsc": "tsc"
+    "tsc": "tsc",
+    "tsc:watch": "tsc --watch"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.554.0",

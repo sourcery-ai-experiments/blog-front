@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import MaxWidthDecorator from "../decorator/MaxWidthDecorator";
 import PostItem from "./PostItem";
 
 const meta = {
@@ -18,6 +19,7 @@ const meta = {
     date: "2024-01-01",
     href: "#",
   },
+  decorators: [(story) => <MaxWidthDecorator>{story()}</MaxWidthDecorator>],
 } satisfies Meta<typeof PostItem>;
 
 export default meta;

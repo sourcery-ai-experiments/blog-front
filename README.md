@@ -27,3 +27,12 @@ pnpm dev
 ```shell
 pnpm sb
 ```
+
+## To-do
+
+- [ ] Edit post Page and feature
+- [ ] Header UI
+- [ ] Login Page UI
+- [ ] Sign Up Page
+- [ ] User Main Page
+- [ ] Markdown to text (for default description)

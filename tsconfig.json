@@ -11,7 +11,7 @@
     "strict": true,
     "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true,
-    "module": "preserve",
+    "module": "esnext",
     "noEmit": true,
     "lib": ["es2022", "dom", "dom.iterable"],
     "moduleResolution": "bundler",
