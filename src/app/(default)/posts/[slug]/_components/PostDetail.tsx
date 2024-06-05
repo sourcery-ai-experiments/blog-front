@@ -1,9 +1,28 @@
 import dayjs from "dayjs";
-import Image from "next/image";
 import Link from "next/link";
-import type { ClassAttributes, ImgHTMLAttributes } from "react";
-import Markdown, { type ExtraProps } from "react-markdown";
-import { height } from "tailwindcss/defaultTheme";
+import Markdown, { type Components } from "react-markdown";
+
+const markdownComponents = {
+  h1: (props) => {
+    return <h1 className="mb-4 border-b text-3xl font-bold" {...props} />;
+  },
+  h2: (props) => {
+    return <h2 className="my-8 border-b pb-2 text-2xl font-bold" {...props} />;
+  },
+  h3: (props) => {
+    return <h3 className="my-8 text-xl font-bold" {...props} />;
+  },
+  img: (props) => {
+    // eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text
+    return <img className="mx-auto my-12" {...props} />;
+  },
+  p: (props) => {
+    return <p className="my-6" {...props} />;
+  },
+  a: (props) => {
+    return <a className="text-blue-500 hover:underline" {...props} />;
+  },
+} satisfies Components;
 
 export default function PostDetail({ post }: { post: Post }) {
   return (
@@ -18,39 +37,7 @@ export default function PostDetail({ post }: { post: Post }) {
         </div>
       </div>
       <div>
-        <Markdown
-          components={{
-            h1: (props) => {
-              return (
-                <h1 className="mb-4 border-b text-3xl font-bold" {...props} />
-              );
-            },
-            h2: (props) => {
-              return (
-                <h2
-                  className="my-8 border-b pb-2 text-2xl font-bold"
-                  {...props}
-                />
-              );
-            },
-            h3: (props) => {
-              return <h3 className="my-8 text-xl font-bold" {...props} />;
-            },
-            img: (props) => {
-              // eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text
-              return <img className="mx-auto my-12" {...props} />;
-            },
-            p: (props) => {
-              return <p className="my-6" {...props} />;
-            },
-            a: (props) => {
-              return <a className="text-blue-500 hover:underline" {...props} />;
-            },
-          }}
-        >
-          {post.content}
-        </Markdown>
-        {/* <MarkdownContent content={post.content} /> */}
+        <Markdown components={markdownComponents}>{post.content}</Markdown>
       </div>
     </div>
   );
