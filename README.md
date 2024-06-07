@@ -13,19 +13,19 @@ cp .env.example .env
 ### Install dependencies
 
 ```shell
-pnpm install
+npm install
 ```
 
 ### Start development server
 
 ```shell
-pnpm dev
+npm run dev
 ```
 
 ### Start Storybook
 
 ```shell
-pnpm sb
+npm run storybook
 ```
 
 ## To-do
