@@ -11,10 +11,13 @@ export default async function Gnb() {
       <Link href={"/"}>Home</Link>
 
       {id ? (
-        <form className="flex gap-4" action={logout}>
+        <div className="flex gap-4">
+          <Link href={"/posts/create"}>New Post</Link>
           <div>{email}</div>
-          <button type="submit">Logout</button>
-        </form>
+          <form action={logout}>
+            <button type="submit">Logout</button>
+          </form>
+        </div>
       ) : (
         <div>
           <Link href={"/login"}>Log in</Link>
