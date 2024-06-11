@@ -30,7 +30,6 @@ npm run storybook
 
 ## To-do
 
-- [ ] Header UI
 - [ ] Login Page UI
 - [ ] Sign Up Page
 - [ ] User Main Page
