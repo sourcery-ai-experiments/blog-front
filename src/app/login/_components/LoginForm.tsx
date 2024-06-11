@@ -23,10 +23,6 @@ export default function LoginForm({
   };
   action?: string | ((formData: FormData) => void);
 }) {
-  const searchParams = useSearchParams();
-
-  const next = searchParams.get("next");
-
   return (
     <form action={action} className="flex flex-col gap-6">
       <div className="flex flex-col gap-3">
