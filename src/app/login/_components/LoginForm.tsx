@@ -1,10 +1,19 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 import Button from "@/components/Button";
 import Input from "@/components/Input";
 
-const LoginForm = ({
+function NextInput() {
+  const searchParams = useSearchParams();
+
+  const next = searchParams.get("next");
+
+  return <>{next && <input type="hidden" name="next" value={next} />}</>;
+}
+
+export default function LoginForm({
   fieldErrors,
   action,
 }: {
@@ -13,8 +22,9 @@ const LoginForm = ({
     password?: string[] | undefined;
   };
   action?: string | ((formData: FormData) => void);
-}) => {
+}) {
   const searchParams = useSearchParams();
+
   const next = searchParams.get("next");
 
   return (
@@ -34,11 +44,11 @@ const LoginForm = ({
           autoComplete="current-password"
           errors={fieldErrors?.password}
         />
-        {next && <input type="hidden" name="next" value={next} />}
+        <Suspense>
+          <NextInput />
+        </Suspense>
       </div>
       <Button type="submit">로그인</Button>
     </form>
   );
-};
-
-export default LoginForm;
+}
