@@ -13,3 +13,11 @@ describe("Input", () => {
     expect(container).toMatchSnapshot();
   });
 });
+
+describe("Input", () => {
+  it("snapshot test", () => {
+    const { container } = render(<Input name="test" label="Test" />);
+
+    expect(container).toMatchSnapshot();
+  });
+});
