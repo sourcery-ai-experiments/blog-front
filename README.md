@@ -30,7 +30,6 @@ npm run storybook
 
 ## To-do
 
-- [ ] Login Page UI
 - [ ] Sign Up Page
 - [ ] User Main Page
 - [ ] Markdown to text (for default description)
