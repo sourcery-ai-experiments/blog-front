@@ -24,11 +24,12 @@ export default function LoginForm({
   action?: string | ((formData: FormData) => void);
 }) {
   return (
-    <form action={action} className="flex flex-col gap-6">
+    <form action={action} className="flex w-96 flex-col gap-6">
       <div className="flex flex-col gap-3">
         <Input
           type="text"
           name="email"
+          label="이메일"
           placeholder="이메일"
           autoComplete="username"
           errors={fieldErrors?.email}
@@ -36,6 +37,7 @@ export default function LoginForm({
         <Input
           type="password"
           name="password"
+          label="비밀번호"
           placeholder="비밀번호"
           autoComplete="current-password"
           errors={fieldErrors?.password}

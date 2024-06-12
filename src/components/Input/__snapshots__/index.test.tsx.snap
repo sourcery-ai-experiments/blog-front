@@ -7,6 +7,26 @@ exports[`Input snapshot test 1`] = `
   >
     <input
       class="w-full rounded border-none px-4 py-3.5 text-sm leading-5 ring-1 ring-inset undefined"
+      id="undefined_input"
+    />
+  </div>
+</div>
+`;
+
+exports[`Input snapshot test 2`] = `
+<div>
+  <div
+    class="flex flex-col gap-2"
+  >
+    <label
+      for="test_input"
+    >
+      Test
+    </label>
+    <input
+      class="w-full rounded border-none px-4 py-3.5 text-sm leading-5 ring-1 ring-inset undefined"
+      id="test_input"
+      name="test"
     />
   </div>
 </div>
