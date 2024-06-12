@@ -25,6 +25,7 @@ const loginSchema = z
       invalid_type_error: PASSWORD_TYPE_ERROR,
       required_error: PASSWORD_REQUIRED_ERROR,
     }),
+    next: z.string().optional(),
   })
   .superRefine(async ({ email, password }, ctx) => {
     const user = await db.user.findUnique({
@@ -63,13 +64,11 @@ const loginSchema = z
   });
 
 export const loginAction = async (_: any, formData: FormData) => {
-  const parsed = await loginSchema.safeParseAsync(
-    Object.fromEntries(formData.entries()),
-  );
+  const parsed = await loginSchema.safeParseAsync(Object.fromEntries(formData));
 
   if (!parsed.success) {
     return parsed.error.flatten();
   }
 
-  redirect("/");
+  redirect(parsed.data.next ?? "/");
 };
