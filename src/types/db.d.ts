@@ -10,13 +10,13 @@ type User = {
 type PostFillable = {
   title: string;
   description?: string | null;
-  content: string;
+  content: string | ReactNode;
 };
 
 type Post = PostFillable & {
-  id: number;
-  userId: number;
-  slug: string;
-  createdAt: Date;
-  updatedAt: Date;
+  id?: number;
+  userId?: number;
+  slug?: string;
+  createdAt?: Date;
+  updatedAt?: Date;
 };

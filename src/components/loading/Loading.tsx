@@ -1,8 +1,8 @@
 import Spinner from "./Spinner";
 
-export default function Loading() {
+export default function CommonLoading() {
   return (
-    <div className="relative flex h-dvh w-dvw items-center justify-center bg-black bg-opacity-20">
+    <div className="flex h-full min-h-48 w-full items-center justify-center">
       <Spinner />
     </div>
   );

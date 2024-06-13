@@ -1,4 +1,6 @@
+import { Suspense } from "react";
 import Gnb from "@/components/gnb";
+import CommonLoading from "@/components/loading/Loading";
 
 export const Footer = () => {
   return (
@@ -8,16 +10,11 @@ export const Footer = () => {
   );
 };
 
-const Header = () => {
-  return <div></div>;
-};
-
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <Gnb />
       <div className="mx-auto max-w-screen-md px-4 py-20">
-        <Header />
         {children}
         <Footer />
       </div>
