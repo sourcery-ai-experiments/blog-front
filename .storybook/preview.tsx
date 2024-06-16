@@ -9,8 +9,9 @@ const RootLayout = ({children}: {children: React.ReactNode}) => {
   return <div className={cn("font-sans", fontSans.variable)}>{children}</div>
 }
 
-const preview: Preview = {
+const preview = {
   parameters: {
+    layout: "fullscreen",
     controls: {
       matchers: {
         color: /(background|color)$/i,
@@ -22,6 +23,6 @@ const preview: Preview = {
     },
   },
   decorators: [(storyFn) => <RootLayout>{storyFn()}</RootLayout>],
-};
+} satisfies Preview;
 
 export default preview;
